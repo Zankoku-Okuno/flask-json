@@ -5,7 +5,7 @@ Work with JSON in Flask in the most straightforward and idiomatic ways.
 
 Install the extension to your flask instance like:
 
-```
+```python
 from flask.ext.json import Json
 Json(app)
 ```
@@ -30,7 +30,7 @@ Shortcut `__jsonfields__` class attribute
 -----------------------------------------
 Often, jsonifying an object simply means translating some attributes of a python object to properties of a javascript object. For this, we provide a shortcut. The following two examples are equivalent:
 
-```
+```python
 def __json__(self):
     return {
         'foo': self.foo,
@@ -40,14 +40,14 @@ def __json__(self):
 
 and
 
-```
+```python
 __jsonfields__ = ('foo', 'bar',)
 ```
 
 You can also add constants and functions on the object by setting `__jsonfields__` to a dictionary.
-Whenever there are special fields mixed with basic fields, the basic fields go in the '__auto__' slot.
+Whenever there are special fields mixed with basic fields, the basic fields go in the `__auto__` slot.
 
-```
+```python
 __jsonfields__ = {
     'some_ints': [1, 2, 3],
     '__auto__': ('foo', 'bar',),
@@ -64,7 +64,7 @@ Any object that is an instance of the registered type will be encoded using that
 This takes precedence over both `__json__` and `__jsonfields__`
 New registrations take precedence old ones.
 
-```
+```python
 from flask.ext.json import jsonEncode
 @jsonEncode(datetime.date)
 def iso8601(date):
@@ -73,7 +73,7 @@ def iso8601(date):
 
 For this simple example, you could also use:
 
-```
+```python
 from flask.ext.json import jsonEncode
 jsonEncode(datetime.date)(str)
 ```
