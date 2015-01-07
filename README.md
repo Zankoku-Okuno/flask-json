@@ -18,7 +18,7 @@ Json Routes
 
 Your application is now equipped with a `json` method, which works much like the standard `route` method, but is more directed to creating json responses.
 
-In particular, return a jsonifyable (see below) python object. A view registered with `@app.json(...)` will
+In particular, return a jsonifyable (see below) python object. A view registered with `@app.json(...)` will handle jsonifying the object and setting the response content-type.
 
 We use normal old `json.dumps` to produce javascript, but we set up a new encoder which can handle a broader range of data. You can use a `__json__` method, a `__jsonfields__` class attribute or register the type after-the-fact.
 
