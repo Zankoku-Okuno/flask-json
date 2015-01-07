@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='Flask-Json',
-    version='0.0.0',
+    version='0.1.0',
     author='Zankoku Okuno',
     author_email='zankoku.okuno@gmail.com',
     packages=['flask_json'],
